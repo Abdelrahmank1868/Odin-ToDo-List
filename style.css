@@ -5,6 +5,14 @@
   box-sizing: border-box;
 }
 
+:root {
+  --borderWidth: 7px;
+  --height: 20px;
+  --width: 12px;
+  --borderColorChecked: #78b13f;
+  --borderColorunChecked: rgb(192, 17, 17);
+}
+
 body {
   background: rgb(155, 71, 12);
 }
@@ -87,25 +95,28 @@ ul li:hover {
   background: #ddd;
 }
 
-ul li:checked {
-  background: #888;
-  color: #fff;
-  text-decoration: line-through;
+/* Check Marks */
+
+.check {
+  display: inline-block;
+  transform: rotate(45deg);
+  height: var(--height);
+  width: var(--width);
+  border-bottom: var(--borderWidth) solid var(--borderColorChecked);
+  border-right: var(--borderWidth) solid var(--borderColorChecked);
+  position: absolute;
+  left: 1%;
 }
 
-/* Before Element (TICKMARK) */
-
-ul li.checked::before {
-  content: "";
-  position: absolute;
-  border-color: #fff;
-  border-style: solid;
-  border-width: 0 2px 2px 0;
-  top: 10px;
-  left: 16px;
+.uncheck {
+  display: inline-block;
   transform: rotate(45deg);
-  height: 15px;
-  width: 7px;
+  height: var(--height);
+  width: var(--width);
+  border-bottom: var(--borderWidth) solid var(--borderColorunChecked);
+  border-right: var(--borderWidth) solid var(--borderColorunChecked);
+  position: absolute;
+  left: 1%;
 }
 
 /* Placing Icons On Right */
@@ -117,7 +128,19 @@ ul li.checked::before {
   padding: 12px 16px 12px 16px;
 }
 
+.fa-solid {
+  position: absolute;
+  right: 3%;
+  top: 0;
+  padding: 12px 16px 12px 16px;
+}
+
 .far:hover {
+  background-color: tomato;
+  color: white;
+}
+
+.fa-solid:hover {
   background-color: tomato;
   color: white;
 }
